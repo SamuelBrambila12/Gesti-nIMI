@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro</title>
+    <link href="img/logo.png" rel="icon">
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<div id="loader-wrapper">
+		<div class="loader">
+			<svg viewBox="0 0 300 100">
+				<path id="i1" d="M20,90 V10 M10,90 H30 M10,10 H30" />
+				<path id="m" d="M60,90 V10 L110,90 L160,10 V90" />
+				<path id="i2" d="M200,90 V10 M190,90 H210 M190,10 H210" />
+			</svg>
+		</div>
+		<div class="loading">Cargando...</div>
+	</div>
+	<video autoplay muted loop id="background-video">
+        <source src="img/video-imi-2.mp4" type="video/mp4">
+    </video>
+	<main>
+        <img class="banner" src="img/colegio-imi.png" alt="banner">
+		<form method="POST" class="formulario" id="formulario" target="hidden-form">
+			<!-- Grupo: Nombre -->
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre del Alumno</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Jorge Quintero" required>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El campo de nombre solo debe tener letras y los espacios pertinentes.</p>
+			</div>
+
+			<!-- Grupo: Edad -->
+			<div class="formulario__grupo" id="grupo__edad">
+				<label for="edad" class="formulario__label">Edad</label>
+				<div class="formulario__grupo-input">
+					<input type="number" class="formulario__input" name="edad" id="edad" placeholder="12" required>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">La edad debe tener 1 o 2 dígitos.</p>
+			</div>
+
+			<!-- Grupo: Género -->
+			<div class="formulario__grupo" id="grupo__genero">
+				<label for="genero" class="formulario__label">Género</label>
+				<div class="formulario__grupo-input">
+                    <select name="genero" class="genero" required>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">Seleccione el género del alumno.</p>
+			</div>
+
+			<!-- Grupo: Grado-->
+			<div class="formulario__grupo" id="grupo_grado">
+				<label for="grado" class="formulario__label">Grado</label>
+				<div class="formulario__grupo-input">
+                    <select name="grado" class="grado" required>
+						<option value="Maternal">Maternal</option>
+                        <option value="1° de Kinder">1° de Kinder</option>
+                        <option value="2° de Kinder">2° de Kinder</option>
+                        <option value="3° de Kinder">3° de Kinder</option>
+						<option value="1° de Primaria">1° de Primaria</option>
+						<option value="2° de Primaria">2° de Primaria</option>
+						<option value="3° de Primaria">3° de Primaria</option>
+						<option value="4° de Primaria">4° de Primaria</option>
+						<option value="5° de Primaria">5° de Primaria</option>
+						<option value="6° de Primaria">6° de Primaria</option>
+						<option value="1° de Secundaria">1° de Secundaria</option>
+						<option value="2° de Secundaria">2° de Secundaria</option>
+						<option value="3° de Secundaria">3° de Secundaria</option>
+                    </select>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">Seleccione el grado del alumno.</p>
+			</div>
+
+            <!-- Grupo: Nombre Padre -->
+			<div class="formulario__grupo" id="grupo__nombre_padre">
+				<label for="nombre_padre" class="formulario__label">Nombre del Padre / Madre</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="nombre_padre" id="nombre_padre" placeholder="Luis Quintero" required>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El campo de nombre solo debe tener letras y los espacios pertinentes.</p>
+			</div>
+
+			<!-- Grupo: Correo Electronico -->
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="correo" class="formulario__label">Correo Electrónico</label>
+				<div class="formulario__grupo-input">
+					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" required>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y guion bajo.</p>
+			</div>
+
+			<!-- Grupo: Teléfono -->
+			<div class="formulario__grupo" id="grupo__telefono">
+				<label for="telefono" class="formulario__label">Teléfono</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567" required>
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El teléfono solo puede contener números y un máximo de 10 dígitos.</p>
+			</div>
+
+			<!-- Campo oculto para la fecha de registro -->
+			<input type="hidden" id="fecha_registro" name="fecha_registro">
+
+			<!-- Grupo: Términos y Condiciones -->
+			<div class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos" required>
+					Los datos ingresados son correctos
+				</label>
+			</div>
+
+			<div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+			</div>
+
+			<div class="formulario__grupo formulario__grupo-btn-enviar">
+				<button type="submit" class="formulario__btn">Enviar</button>
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+			</div>
+		</form>
+	</main>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const formulario = document.getElementById('formulario');
+			const inputs = document.querySelectorAll('#formulario input');
+
+			const expresiones = {
+				nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+				nombre_padre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+				edad: /^.{1,2}$/, // 1 o 2 dígitos.
+				correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+				telefono: /^\d{7,14}$/ // 7 a 14 números.
+			}
+
+			const campos = {
+				nombre: false,
+				edad: false,
+				nombre_padre: false,
+				correo: false,
+				telefono: false
+			}
+
+			const validarFormulario = (e) => {
+				switch (e.target.name) {
+					case "nombre":
+						validarCampo(expresiones.nombre, e.target, 'nombre');
+						break;
+					case "edad":
+						validarCampo(expresiones.edad, e.target, 'edad');
+						break;
+					case "nombre_padre":
+						validarCampo(expresiones.nombre_padre, e.target, 'nombre_padre');
+						break;
+					case "correo":
+						validarCampo(expresiones.correo, e.target, 'correo');
+						break;
+					case "telefono":
+						validarCampo(expresiones.telefono, e.target, 'telefono');
+						break;
+				}
+			}
+
+			const validarCampo = (expresion, input, campo) => {
+				if (expresion.test(input.value)) {
+					document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+					document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+					document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+					document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+					document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+					campos[campo] = true;
+				} else {
+					document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+					document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+					document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+					document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+					document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+					campos[campo] = false;
+				}
+			}
+
+			inputs.forEach((input) => {
+				input.addEventListener('keyup', validarFormulario);
+				input.addEventListener('blur', validarFormulario);
+			});
+			formulario.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			const terminos = document.getElementById('terminos');
+			if (campos.nombre && campos.nombre_padre && campos.edad && campos.correo && campos.telefono && terminos.checked) {
+				// Aquí se podría agregar una función para enviar los datos al servidor usando fetch() o XMLHttpRequest
+		
+				var formData = new FormData(formulario);
+
+				fetch('procesar_formulario.php', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.text())
+				.then(data => {
+					// Manejar la respuesta del servidor, por ejemplo:
+					document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+					setTimeout(() => {
+						document.getElementById('formulario__mensaje-exito').style.display = 'none';
+					}, 5000);
+
+					
+					// Reiniciar la validación de los campos
+					document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+						icono.classList.remove('formulario__grupo-correcto');
+					});
+					formulario.reset();
+				})
+				.catch(error => {
+					console.error('Error al enviar formulario:', error);
+					// Aquí se puede manejar el error en caso de que ocurra algún problema con la solicitud fetch()
+				});
+			} else {
+				document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+			}
+		});
+		
+			// Código existente para la fecha
+			var fechaActual = new Date();
+			var campoFecha = document.getElementById('fecha_registro');
+			var fechaFormato = fechaActual.getFullYear() + '-' + ('0' + (fechaActual.getMonth() + 1)).slice(-2) + '-' + ('0' + fechaActual.getDate()).slice(-2);
+			campoFecha.value = fechaFormato;
+		});
+
+		function animatePath(pathId, duration) {
+        const path = document.getElementById(pathId);
+        const length = path.getTotalLength();
+        
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+        
+        path.style.animation = `drawPath ${duration}s ease-in-out forwards`;
+    	}
+
+    	setTimeout(() => animatePath('i1', 0.5), 0);
+    	setTimeout(() => animatePath('m', 1), 500);
+    	setTimeout(() => animatePath('i2', 0.5), 1500);
+
+    	window.addEventListener('load', function() {
+        	setTimeout(function() {
+            	document.getElementById('loader-wrapper').style.display = 'none';
+        	}, 2000);
+    	});
+		</script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</body>
+</html>
