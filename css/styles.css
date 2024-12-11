@@ -1,0 +1,1185 @@
+/* Estilos generales */
+body {
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40;
+    padding: 15px 0;
+    position: relative;
+    z-index: 1001; /* Asegura que el header esté por encima del menú */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002; /* Asegura que esté por encima del menú */
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: white;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Inicialmente fuera de la pantalla */
+    height: calc(100vh - 48px); /* Altura total menos la altura del header */
+    width: 300px;
+    background-color: #333;
+    overflow-y: auto;
+    transition: left 0.3s ease-out;
+    z-index: 1000;
+    margin-top: 52px; /* Ajusta esto a la altura de tu header */
+}
+
+.menu.active {
+    left: 0;
+}
+
+.menu ul {
+    padding: 20px 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menu ul li {
+    padding: 0;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #444;
+}
+
+.menu ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.user-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.user-nav ul li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.user-nav ul li form {
+    margin: 0;
+    padding: 0;
+    display: inline-block; /* Asegura que el formulario no ocupe todo el ancho */
+}
+
+.user-nav ul li form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0;
+    outline: none;
+    /* Añade estas líneas para eliminar cualquier borde o sombra */
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Estilo para cuando el botón está enfocado */
+.user-nav ul li form button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+@media (max-width: 768px) {
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .menu-container {
+        order: 0;
+    }
+
+    .user-nav {
+        order: 1;
+        width: auto;
+        margin-top: 0;
+    }
+
+    .user-nav ul {
+        text-align: right;
+    }
+
+    .menu {
+        width: 100%;
+        left: -100%; /* Oculta completamente el menú fuera de la pantalla */
+    }
+
+    .menu.active {
+        left: 0; /* Muestra el menú al activarlo */
+    }
+}
+
+/* Estilos de paginación */
+.paginacion {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.paginacion a, .paginacion span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.paginacion a:hover {
+    background-color: #f5f5f5;
+}
+
+.paginacion .pagina-actual {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* Estilos de mensaje */
+.mensaje {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mensaje.exito {
+    background-color: #28a745;
+}
+
+.mensaje.error {
+    background-color: #dc3545 !important;
+}
+
+.mensaje.oculto {
+    display: none;
+}
+
+/* Estilos de la barra de progreso */
+.barra-progreso {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.barra {
+    height: 100%;
+    width: 0;
+    background-color: #fff;
+    transition: width 5s linear;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+
+
+main {
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    position: relative; /* Agregado para posición relativa */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    padding: 35px; /* Elimina cualquier padding interno */
+    margin: 0; /* Elimina cualquier margen */
+}
+
+.acciones-fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.acciones-fila form {
+    flex: 1;
+}
+
+.boton-ver-ficha,
+.boton-generar-pdf,
+.boton-eliminar,
+.boton-asignar-grupo {
+    white-space: nowrap;
+}
+
+td.acciones {
+    padding: 0 !important;
+}
+
+.acciones {
+    margin: 0 !important;
+}
+
+
+/* Estilos para acciones masivas */
+.acciones-masivas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.boton-eliminar-seleccionados {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 15px 40px; 
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right; 
+    margin-top: 20px; 
+    position: relative; 
+}
+
+.columna-seleccion {
+    width: 100px; /* Aumentado para acomodar el título */
+    text-align: center;
+}
+
+/* Estilo para el checkbox en la celda */
+.columna-seleccion input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 5px; 
+    appearance: none; 
+    background-color: #f0f0f0; 
+    border: 2px solid #ccc; 
+    cursor: pointer; 
+    position: relative; 
+}
+
+.columna-seleccion input[type="checkbox"]:checked {
+    background-color: #007bff; 
+    border-color: #007bff; 
+}
+
+.columna-seleccion input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+/* Media querie para ajustar la tabla en dispositivos pequeños */
+@media screen and (max-width: 1400px) {
+    /* Estilos para la tabla */
+    table {
+        border: 0;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table td {
+        text-align: right;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table td::before {
+        font-weight: bold;
+        float: left;
+        content: attr(data-label);
+        text-transform: uppercase;
+    }
+
+    .acciones {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .acciones-fila {
+        flex-direction: column;
+    }
+
+    .acciones form {
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* Asegura que el formulario ocupe todo el ancho */
+    }
+
+    /* Ajusta los botones para que ocupen todo el ancho */
+    .acciones form button,
+    .boton-ver-ficha,
+    .boton-generar-pdf,
+    .boton-eliminar,
+    .boton-asignar-grupo {
+        width: 100%;
+        margin-bottom: 5px; /* Espacio entre botones */
+        font-size: 16px;
+    }
+
+    .boton-descargar-excel {
+        float: none;
+        margin-top: 10px; /* Ajusta según necesites */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .boton-solicitud,
+    .boton-cancelar,
+    .boton-recibido {
+        width: 100%;
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+
+    .logo-excel {
+        position: static; /* Cambiado a estático para que fluya con el documento */
+        width: 20px; /* Ajusta el tamaño según necesites */
+        height: auto; /* Para mantener la proporción */
+        margin-right: 10px; /* Ajusta el margen según necesites */
+    }
+
+    /* Estilos para los filtros en línea */
+    .options form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .options form label,
+    .options form input,
+    .options form select {
+        flex: 1 1 auto;
+        margin-bottom: 10px;
+    }
+
+    .options form button {
+        flex: 0 0 auto;
+        width: auto;
+        margin-left: 10px;
+    }
+}
+
+
+/* Estilos para el formulario de inicio de sesión */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form input {
+    font-family: 'Nunito', sans-serif;
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input[readonly] {
+    background-color: #e9ecef; /* Color de fondo gris claro */
+    color: #495057; /* Color del texto gris oscuro */
+    border: 1px solid #ced4da; /* Borde gris claro */
+    cursor: not-allowed; /* Cambia el cursor para indicar que es solo lectura */
+}
+
+form textarea {
+    font-family: 'Nunito', sans-serif;
+    width: calc(100% - 10px); /* Igual al input */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none; /* Evita que el usuario cambie el tamaño */
+    overflow: hidden; /* Oculta el desbordamiento para evitar barras de desplazamiento */
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto del elemento */
+}
+
+.boton-inicio-sesion,
+.boton-actualizar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.boton-inicio-sesion:hover,
+.boton-actualizar:hover {
+    background-color: #45a049;
+}
+
+.ficha-alumno {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ficha-alumno h2 {
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.ficha-alumno p {
+    margin-bottom: 10px;
+}
+
+.ficha-alumno strong {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.boton-ver-ficha {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-ver-ficha:hover {
+    background-color: #0b7dda;
+}
+
+.boton-generar-pdf {
+    background-color: #1a48ac;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-generar-pdf:hover {
+    background-color: #005588;
+}
+
+.boton-eliminar {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-eliminar:hover {
+    background-color: #850014;
+}
+
+.boton-asignar-grupo {
+    background-color: #f87b00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-asignar-grupo:hover {
+    background-color: #c14e0f;
+}
+
+.boton-descargar-excel {
+    background-color: #125d4b;
+    color: white;
+    border: none;
+    padding: 12px 40px; 
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right; 
+    margin-top: 20px; 
+    position: relative; 
+}
+
+.logo-excel {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 30px; 
+    height: auto; 
+}
+
+.boton-seleccionar-todos {
+    background-color: #660000;
+    color: white;
+    border: none;
+    padding: 15px 40px; 
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    float: right; 
+    margin-top: 20px; 
+    position: relative; 
+}
+
+.boton-filtrar,
+.boton-limpiar {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boton-filtrar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.boton-limpiar {
+    background-color: #f44336;
+    color: white;
+}
+
+.boton-filtrar:hover,
+.boton-limpiar:hover {
+    opacity: 0.8;
+}
+
+#filtro_nombre:focus {
+    border-color: black; /* Borde negro cuando está enfocado */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+.options {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.options form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.options form label,
+.options form input,
+.options form select,
+.options form button {
+    margin-bottom: 0; /* Elimina el margen inferior predeterminado */
+}
+
+.options form button {
+    flex: 0 0 auto; /* Ajusta el tamaño del botón según su contenido */
+    width: auto; /* Ancho automático */
+    margin-left: 10px; /* Espacio entre el botón y otros elementos */
+}
+
+/* Estilos ver ficha.php */
+.ficha-alumno {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Contenedor de columnas */
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Imagen del alumno */
+.foto-alumno {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Botón de descarga de ficha */
+.contenedor-descarga {
+    text-align: center;
+}
+
+.btn-descargar {
+    width: 30%;
+    height: 40px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-decoration: none;
+    background-color: #171717;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: all .4s;
+    display: inline-block;
+   }
+   
+   .btn-descargar:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #f85959,
+     0 15px 0 -4px #39a2db,
+     0 16px 10px -3px #39a2db;
+   }
+   
+   .btn-descargar:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #f85959,
+     0 8px 0 -4px #39a2db,
+     0 12px 10px -3px #39a2db;
+   }
+
+/* Estilos para pantallas grandes */
+@media (min-width: 800px) {
+    .ficha-alumno {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ficha-alumno img {
+        align-self: center; /* Centra la imagen horizontalmente */
+        max-width: 200px;
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .info-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .info-column {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+    }
+
+    .info-column h3 {
+        margin-top: 0;
+    }
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 799px) {
+    .ficha-alumno {
+        display: block;
+    }
+
+    .info-container {
+        display: block;
+    }
+
+    .info-column {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Estilos para el contenedor de la carga de archivo */
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cambiar color de fondo en hover */
+.custom-file-upload:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Mostrar una vista previa de la imagen seleccionada */
+#foto-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#foto-preview img {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 100px;
+    height: auto;
+}
+
+
+/* Estilos para la página de asignar grupo */
+#asignar-grupo {
+    border-radius: 3px;
+	width: 100%;
+	background: #fff;
+	border: 1px solid;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+    margin-bottom: 30px;
+}
+
+#retorno {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Cambiado de inline-block a block */
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    width: fit-content; /* Ajusta el ancho del botón al contenido */
+}
+
+/* Estilos para el botón de envío */
+.box {
+    width: 100%;
+    height: 40px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #171717;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: all .4s;
+   }
+   
+   .box:hover {
+    border-radius: 5px;
+    transform: translateY(-10px);
+    box-shadow: 0 7px 0 -2px #f85959,
+     0 15px 0 -4px #39a2db,
+     0 16px 10px -3px #39a2db;
+   }
+   
+   .box:active {
+    transition: all 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 2px 0 -2px #f85959,
+     0 8px 0 -4px #39a2db,
+     0 12px 10px -3px #39a2db;
+   }
+   
+  
+
+/* Estilos de Administrador de Pagos */
+#conceptos {
+    max-width: 1300px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.filter-container {
+    margin-bottom: 1rem;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.form-inline {
+    display: inline; /* Mantén el formulario en línea */
+    margin: 0; /* Elimina márgenes innecesarios */
+    padding: 0; /* Elimina relleno innecesario */
+    border: none; /* Elimina borde del formulario */
+}
+
+/* Asegúrate de que el botón tenga el estilo correcto */
+.btn-danger {
+    border: none; /* Elimina borde adicional del botón */
+    box-shadow: none; /* Elimina cualquier sombra */
+    color: white;
+}
+
+/* Opcional: Ajusta el botón para que se ajuste al diseño */
+.btn {
+    font-size: 0.875rem; /* Tamaño de fuente pequeño */
+    padding: 0.375rem 0.75rem; /* Ajusta el relleno */
+    margin-bottom: 10px;
+}
+
+
+.mb-4 {
+    max-width: 1300px;
+}
+
+
+/* Estilos pago padre */
+.btn-pagar {
+    border: none; /* Elimina el borde del botón */
+    background-color: #007bff; /* Fondo del botón (puedes ajustar el color) */
+    color: #fff; /* Color del texto del botón */
+    padding: 0.5rem 1rem; /* Ajusta el padding para que sea más grande si es necesario */
+    font-size: 1rem; /* Ajusta el tamaño del texto */
+    cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+    text-align: center; /* Centra el texto en el botón */
+    display: inline-block; /* Asegura que el botón no afecte el diseño del formulario */
+}
+
+.btn-pagar:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    text-decoration: none; /* Subrayado al pasar el ratón */
+}
+
+.pagos-pendientes {
+    background: none; /* Elimina el fondo blanco del formulario */
+    border: none; /* Elimina el borde del formulario */
+    padding: 0; /* Elimina el padding del formulario */
+    margin: 0; /* Elimina el margen del formulario */
+}
+
+
+/* Estilos de pasarela de pagos */
+/* Paypal */
+.result-message {
+    padding: 15px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #28a745; /* Color verde para el éxito */
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: none; /* Ocultar por defecto */
+}
+
+.result-message.error {
+    background-color: #dc3545; /* Color rojo para errores */
+}
+
+.result-message.info {
+    background-color: #17a2b8; /* Color azul para información */
+}
+
+.result-message.hidden {
+    display: none; /* Ocultar el mensaje */
+}
+
+
+/* Estilos de tramites_padre */
+.boton-solicitud {
+    background-color: #2196F3;
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-solicitud:hover {
+    background-color: #0b7dda;
+}
+
+.boton-cancelar {
+    background-color: #dc3545;
+    width: 70%;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.boton-cancelar:hover {
+    background-color: #850014;
+}
+
+.boton-recibido {
+    background-color: #4CAF50;
+    width: 70%;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    display: inline-block;
+}
+
+.boton-recibido:hover {
+    background-color: #45a049;
+}
+
+
+/* Estilos del loader */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader svg {
+    width: 250px;
+    height: 100px;
+}
+
+.loader path {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#i1, #i2 { stroke: #142083; }
+#m { stroke: #db002f; }
+
+.loading {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #666;
+    letter-spacing: 2px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

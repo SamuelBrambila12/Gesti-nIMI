@@ -1,0 +1,152 @@
+/* Estilos generales */
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #001f3f, #ff0000); /* Gradiente azul marino y rojo fuerte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Estilo del contenedor principal */
+main {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Asegura que esté sobre la animación del fondo */
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Estilos para los mensajes de error */
+.error {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilo para los labels */
+label {
+    display: block;
+    text-align: left;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Estilo de los campos de entrada */
+input[type="text"], input[type="password"] {
+    width: calc(100% - 50px);
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Estilos al hacer foco en los campos */
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 4px 12px rgba(30, 60, 114, 0.2);
+    outline: none;
+}
+
+/* Estilo para el icono del ojo (mostrar/ocultar contraseña) */
+#eye-icon {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 2px;
+    height: 24px;
+    transition: 0.3s ease;
+}
+
+/* Estilo para el botón de inicio de sesión */
+.boton-inicio-sesion {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #001f3f; /* Azul marino */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover y efecto de botón */
+.boton-inicio-sesion:hover {
+    background-color: #001437; /* Variante más oscura de azul marino */
+    box-shadow: 0 4px 12px rgba(0, 19, 55, 0.2);
+}
+
+/* Texto animado en el fondo (efecto máquina de escribir) */
+body::before {
+    content: "Be the best. Be IMI!";
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end 3; /* Solo parpadea 3 veces al final */
+    z-index: 0;
+    pointer-events: none; /* Evita que interfiera con los elementos interactivos */
+}
+
+/* Animación de máquina de escribir */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Animación de parpadeo del cursor */
+@keyframes blink-caret {
+    from, to { border-right: 2px solid transparent; }
+    50% { border-right: 2px solid white; }
+}
+
+/* Hacer que los campos de error tengan animación en dispositivos más pequeños */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+    
+    body::before {
+        font-size: 30px;
+    }
+}
